@@ -18,6 +18,15 @@ $(document).ready(function(){
 		$('.img-layout').removeClass('selected');
 		$(this).addClass('selected');
 		$('input[name="hero_layout"]').val( this.id );
+		
+		if( this.id == 1 )
+		{
+			$('#hero_image_video_group').hide();
+		}
+		else
+		{
+			$('#hero_image_video_group').show();
+		}
 	});
 	
 	$('select[name="body_layout"]').change(function(){
@@ -25,7 +34,7 @@ $(document).ready(function(){
 	});
 	
 	// froala
-	$('textarea[name="header_menu_links"]').froalaEditor({
+	$('textarea[name="header_top_right_content"]').froalaEditor({
 		heightMin: 150,
 		heightMax: 200,
 		toolbarButtons: [

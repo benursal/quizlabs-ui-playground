@@ -1,9 +1,9 @@
 <?php
-/*
+
 echo '<pre>';
 print_r( $_POST );
 echo '</pre>';
-*/
+
 $p = $_POST;
 ?>
 <!DOCTYPE html>
@@ -44,17 +44,101 @@ $p = $_POST;
 
 	<body>
     <div id="landingPageContainer">
-      <div class="lp-template lp-template-4" id="lpTemplate4">
+      <div class="lp-template lp-template-4 margin-top-0" id="lpTemplate4">
+		
+		<?php
+			$top_bar_style = ( !empty($p['header_bg_color']) ) ? 'background-color:' . $p['header_bg_color'] . ' !important;' : '';
+		?>
+		<div id="mainNavigation" class="navbar navbar-quizlabs" style="<?=$top_bar_style;?>">
+			<div class="container">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="#">
+						<?php if( !empty($p['header_logo_url']) ) : ?>
+							<img src="<?php echo $p['header_logo_url'];?>" id="" class="img-responsive image-align-center" />
+						<?php endif; ?>
+				  </a>
+				</div>
+				<div class="collapse navbar-collapse">
+				  <!--<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#chefs">About</a></li>
+					<li><a href="#dishes">Services</a></li>
+					<li><a href="#dishes">Blog</a></li>
+					<li><a href="#dishes">Contact</a></li>
+				  </ul>-->
+				  
+					<?php if( strpos($p['header_top_right_content'], '<ul') !== FALSE ) : ?>
+					<?php
+						$top_right_content = str_replace('<ul>', '<ul class="nav navbar-nav navbar-right">', $p['header_top_right_content']);
+						echo $top_right_content;
+					?>
+					<?php else : ?>
+				  
+						<div class="nav-info">
+							<?php echo $p['header_top_right_content']; ?>
+						</div>
+					
+					<?php endif; ?>
+					
+				</div>
+			</div>
 
-        <div id="hero" class="section-darkgray">
+		</div>
+		
+		<?php
+			$hero_style = '';
+			$hero_style .= ( !empty($p['hero_bg_color']) ) ? 'background-color:' . $p['hero_bg_color'] . ' !important;' : '';
+			$hero_style .= ( !empty($p['hero_bg_image']) ) ? 'background-image:url(\'' . $p['hero_bg_image'] . '\') !important; background-size:cover;repeat:no-repeat' : '';
+		?>
+        <div id="hero" class="section-darkgray" style="<?=$hero_style;?>">
           <div class="container">
             <div class="row">
-              <div class="col-md-10 col-md-offset-1 text-center">
-                <img src="<?php echo $p['header_logo_url'];?>" id="" class="img-responsive image-align-center" />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10 col-md-offset-1">
+			
+			<?php
+				$img_mime = array('image/png', 'image/jpeg', 'image/gif');
+				$img = getimagesize($p['hero_image_video_url']);
+				//print_r($img);
+				
+				if( in_array($img['mime'], $img_mime) ) // it is an image
+				{
+					$image_or_file_content = '<img src="'.$p['hero_image_video_url'].'" class="img-responsive image-align-center" />';
+				}
+				else // it's a youtube video
+				{
+					$yt_video_embed = str_replace('watch?v=', 'embed/', $p['hero_image_video_url']);
+					
+					$image_or_file_content = '<iframe width="560" style="border:3px solid white" height="415" src="'.$yt_video_embed.'"
+                  frameborder="0" allowfullscreen></iframe>';
+				}
+			?>
+			
+			
+			<?php if( $p['hero_layout'] == 3 ) : // text on right ?>
+				<div class="col-md-6 margin-top-30">
+					<?php echo $image_or_file_content; ?>
+				</div>
+			<?php endif; ?>
+			
+			
+			<?php
+				if( $p['hero_layout'] == 1 )
+				{
+					$text_content_class = 'col-md-10 col-md-offset-1';
+				}
+				else
+				{
+					$text_content_class = 'col-md-6 text-left';
+				}
+			?>
+			
+              <div class="<?=$text_content_class;?>">
+				
 				<?php if( !empty($p['hero_main_headline']) ) : ?>
                 <h1 class="text-70 capitalize margin-top-50 text-extrabold text-blue"><?=$p['hero_main_headline'];?></h1>
 				<?php endif; ?>
@@ -64,16 +148,45 @@ $p = $_POST;
                   <?=$p['hero_lead_paragraph'];?>
                 </p>
 				<?php endif; ?>
-
-                <a href="thank-you.html" class="btn btn-lg btn-cta btn-yellow mtb">
-                  Start Quiz <i class="ion-arrow-right-c" aria-hidden="true"></i>
+				
+				<?php
+				$main_cta_style = '';
+				
+				$main_cta_text = ( !empty($p['hero_main_cta_text']) ) ? $p['hero_main_cta_text'] : 'Get it now!';
+				$main_cta_url = ( !empty($p['hero_main_cta_url']) ) ? $p['hero_main_cta_url'] : '#';
+				$main_cta_style .= ( !empty($p['hero_main_cta_bg_color']) ) ? 'background-color:' . $p['hero_main_cta_bg_color'] . ' !important;' : '';
+				$main_cta_style .= ( !empty($p['hero_main_cta_text_color']) ) ? 'color:'.$p['hero_main_cta_text_color'].' !important' : '';
+				?>
+                <a href="<?=$main_cta_url; ?>" class="btn btn-lg btn-cta btn-yellow mtb" style="<?=$main_cta_style;?>">
+					<?=$main_cta_text; ?>
                 </a>
-
-                <p class="text-12">
-                  Powered by <a href="/">QuizLabs</a>
-                </p>
-
+				
+				
+				<?php if( !empty($p['hero_secondary_cta_text']) ) : ?>
+				<?php 
+				$secondary_cta_style = '';
+				
+				$secondary_cta_text = ( !empty($p['hero_secondary_cta_text']) ) ? $p['hero_secondary_cta_text'] : 'Learn more';
+				$secondary_cta_url = ( !empty($p['hero_secondary_cta_url']) ) ? $p['hero_secondary_cta_url'] : '#';
+				$secondary_cta_style .= ( !empty($p['hero_secondary_cta_bg_color']) ) ? 'background-color:' . $p['hero_secondary_cta_bg_color'] . ' !important;' : '';
+				$secondary_cta_style .= ( !empty($p['hero_secondary_cta_text_color']) ) ? 'color:'.$p['hero_secondary_cta_text_color'].' !important' : '';
+				?>
+				  &nbsp;
+                <a href="<?=$secondary_cta_url; ?>" class="btn btn-lg btn-cta btn-yellow mtb" style="<?=$secondary_cta_style;?>">
+					<?=$secondary_cta_text; ?>
+                </a>
+				
+				<?php endif; ?>
+                
               </div>
+			  
+			  <?php if( $p['hero_layout'] == 2 ) : // text on left ?>
+				<div class="col-md-6 margin-top-30">
+					<?php echo $image_or_file_content; ?>
+				</div>
+			  <?php endif; ?>
+			  
+			  
             </div><!--/row -->
           </div><!--/container -->
         </div><!-- /.IS Wrap -->

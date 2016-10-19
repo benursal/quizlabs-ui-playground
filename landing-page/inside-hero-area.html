@@ -25,7 +25,7 @@
 											Headline, lead paragraph & CTA button on the right. Image or video on the left.
 										</p>
 									</div>
-									<input type="text" name="hero_layout" value="1" />
+									<input type="hidden" name="hero_layout" value="1" />
 								</div>
 							</div>
 							
@@ -39,9 +39,10 @@
 								<textarea class="form-control" name="hero_lead_paragraph" placeholder="type a short description here..." rows="3"></textarea>
 							</div>
 							
-							<div class="form-group margin-top-20">
+							<div class="form-group margin-top-20" id="hero_image_video_group">
 								<label class="text-14">Image / Video URL</label><br />
-								<span class="text-12">This is the image / video that will appear beside your text content</span>
+								<span class="text-12">This is the image / video that will appear beside your text content</span><br />
+								<span class="text-red text-12">Only images and youtube videos are allowed in this demo</span>
 								<input type="text" class="form-control" name="hero_image_video_url" placeholder="http://" />
 							</div>
 							
