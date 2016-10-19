@@ -11,12 +11,12 @@
 					<div class="row lp-section">
 						<div class="col-lg-12">
 							<div class="lp-section-title">
-								<h3 class="pull-right"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h3>
+								<h3 class="pull-right"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></h3>
 								<h3 class="pull-left">Header Area</h3>
 								<div class="clearfix"></div>
 							</div>
 							
-							<div class="lp-section-inside hidden">
+							<div class="lp-section-inside">
 								<?php include 'inside-header-area.html'; ?>
 							</div>
 						</div>
@@ -40,12 +40,12 @@
 					<div class="row lp-section">
 						<div class="col-lg-12">
 							<div class="lp-section-title">
-								<h3 class="pull-right"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></h3>
+								<h3 class="pull-right"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h3>
 								<h3 class="pull-left">Body Area</h3>
 								<div class="clearfix"></div>
 							</div>
 							
-							<div class="lp-section-inside">
+							<div class="lp-section-inside hidden">
 								<?php include 'inside-body-area.html'; ?>
 							</div>
 						</div>
@@ -104,7 +104,7 @@
 						</a> 
 					</p>
 				</div>
-				<div class="col-md-3 col-md-offset-1 text-center">
+				<div class="col-md-4 text-center">
 					<button type="submit" class="btn btn-lg btn-block btn-info">Preview</button>
 				</div>
 			</div>

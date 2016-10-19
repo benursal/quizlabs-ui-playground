@@ -17,6 +17,7 @@ $(document).ready(function(){
 	$('.img-layout').click(function(){
 		$('.img-layout').removeClass('selected');
 		$(this).addClass('selected');
+		$('input[name="hero_layout"]').val( this.id );
 	});
 	
 	$('select[name="body_layout"]').change(function(){
@@ -35,5 +36,10 @@ $(document).ready(function(){
 	$('textarea.content').froalaEditor({
 		heightMin: 400,
 		heightMax: 600
+    });
+	
+	$('textarea.testimonial').froalaEditor({
+		heightMin: 200,
+		heightMax: 400
     });
 });

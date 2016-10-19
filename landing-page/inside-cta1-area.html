@@ -1,74 +1,50 @@
 							<div class="form-group margin-top-20">
+								<label class="text-14">Type</label>
+								<select class="form-control" name="cta_1_type">
+									<option value="cta_button">Call-to-action Button</option>
+									<option value="optin_form">Opt-in Form</option>
+								</select>
+							</div>
+							
+							<div class="form-group margin-top-20">
 								<label class="text-14">Background Color</label>
-								<input type="color" value="" class="form-control">
+								<input type="color" value="" name="cta_1_bg_color" class="form-control">
 							</div>
 							<div class="form-group margin-top-20">
 								<label class="text-14">Background Image URL</label>
-								<input type="text" class="form-control" placeholder="http://" />
-							</div>
-							<div class="form-group margin-top-20">
-								<label class="text-14">Layout</label>
-								<!--<select class="form-control">
-									<option value="">Centered</option>
-									<option value="">Image/Video on LEFT  -  Text on RIGHT</option>
-									<option value="">Text on LEFT  -  Image/Video on RIGHT</option>
-								</select>-->
-								<div class="row">
-									<div class="col-lg-4">
-										<img src="img/layout-centered-hero.png" class="img-responsive img-layout selected" />
-										<p class="text-12 text-center margin-top-20">Headline, lead paragraph and CTA button on the center.</p>
-									</div>
-									<div class="col-lg-4">
-										<img src="img/layout-text-left.png" class="img-responsive img-layout" />
-										<p class="text-12 text-center margin-top-20">
-											Headline, lead paragraph & CTA button on the Left. Image or video on the right.
-										</p>
-									</div>
-									<div class="col-lg-4">
-										<img src="img/layout-text-right.png" class="img-responsive img-layout" />
-										<p class="text-12 text-center margin-top-20">
-											Headline, lead paragraph & CTA button on the right. Image or video on the left.
-										</p>
-									</div>
-								</div>
+								<input type="text" class="form-control" name="cta_1_bg_image" placeholder="http://" />
 							</div>
 							
 							<div class="form-group margin-top-20">
 								<label class="text-14">Main Headline</label>
-								<input type="text" name="" class="form-control" placeholder="Main headline..." />
+								<input type="text" name="cta_1_headline" class="form-control" placeholder="Main headline..." />
 							</div>
 							
 							<div class="form-group margin-top-20">
 								<label class="text-14">Lead Paragraph</label>
-								<textarea class="form-control" placeholder="type a short description here..." rows="3"></textarea>
+								<textarea class="form-control" name="cta_1_lead_paragraph" placeholder="type a short description here..." rows="3"></textarea>
 							</div>
 							
 							<div class="form-group margin-top-20">
-								<label class="text-14">Image / Video URL</label><br />
-								<span class="text-12">This is the image / video that will appear beside your text content</span>
-								<input type="text" class="form-control" placeholder="http://" />
-							</div>
-							
-							<div class="form-group margin-top-20">
-								<label class="text-14">Main Call-to-action Button</label>
+								<label class="text-14">Call-to-action Button</label>
 								
 								<div class="form-group margin-top-0 padding-left-20">
 									<label class="text-14 text-light">Text</label>
-									<input type="text" class="form-control" placeholder="Buy Now!" />
+									<input type="text" class="form-control" name="cta_1_button_text" placeholder="Buy Now!" />
 								</div>
 								
 								<div class="form-group margin-top-0 padding-left-20">
 									<label class="text-14 text-light">URL</label>
-									<input type="text" class="form-control" placeholder="http://" />
+									<input type="text" class="form-control" name="cta_1_button_url" placeholder="http://" />
 								</div>
 								
 								<div class="form-group margin-top-0 padding-left-20">
 									<label class="text-14 text-light">Button Background Color</label>
-									<input type="color" value="" class="form-control">
+									<input type="color" value="" class="form-control" name="cta_1_button_bg_color" />
 								</div>
 								
 								<div class="form-group margin-top-0 padding-left-20">
 									<label class="text-14 text-light">Button Text Color</label>
-									<input type="color" value="" class="form-control">
+									<input type="color" value="" class="form-control" name="cta_1_button_text_color" />
 								</div>
 							</div>
