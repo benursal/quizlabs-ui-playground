@@ -18,4 +18,22 @@ $(document).ready(function(){
 		$('.img-layout').removeClass('selected');
 		$(this).addClass('selected');
 	});
+	
+	$('select[name="body_layout"]').change(function(){
+		alert( this.value );
+	});
+	
+	// froala
+	$('textarea[name="header_menu_links"]').froalaEditor({
+		heightMin: 150,
+		heightMax: 200,
+		toolbarButtons: [
+			'bold', 'italic', 'underline','formatUL', 'insertLink', 'undo', 'redo'
+		]
+    });
+	
+	$('textarea.content').froalaEditor({
+		heightMin: 400,
+		heightMax: 600
+    });
 });

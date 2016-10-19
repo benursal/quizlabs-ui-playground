@@ -50,10 +50,14 @@
 </style>
 	
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="css1.css">  
-  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="css2.css">  
-  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="css3.css">
-  <link rel="stylesheet" type="text/css" href="css4.css">
+	<!-- Include Editor style. -->
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="css1.css">  
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="css2.css">  
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="css3.css">
+	<link rel="stylesheet" type="text/css" href="css4.css">
 <meta name="fragment" content="!">
 <meta charset="utf-8">
   <title>QuizLabs</title>
