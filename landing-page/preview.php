@@ -102,7 +102,7 @@ $p = $_POST;
 			
 			<?php
 				$img_mime = array('image/png', 'image/jpeg', 'image/gif');
-				$img = getimagesize($p['hero_image_video_url']);
+				$img = @getimagesize($p['hero_image_video_url']);
 				//print_r($img);
 				
 				if( in_array($img['mime'], $img_mime) ) // it is an image
@@ -191,97 +191,61 @@ $p = $_POST;
           </div><!--/container -->
         </div><!-- /.IS Wrap -->
 
-        <div class="section bg-white">
+		
+		<?php
+			$body_style = '';
+			$body_style .= ( !empty($p['body_bg_color']) ) ? 'background-color:' . $p['body_bg_color'] . ' !important;' : '';
+			$body_style .= ( !empty($p['body_bg_image']) ) ? 'background-image:url(\'' . $p['body_bg_image'] . '\') !important; background-size:cover;repeat:no-repeat' : '';
+		?>
+		
+        <div class="section bg-white" style="<?=$body_style;?>">
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2 text-center">
-                <h2 class="text-blue text-60 text-light capitalize">How it works</h2>
-
+			  
+				<?php if( !empty($p['body_headline']) ) : ?>
+                <h1 class="text-blue text-60 text-light capitalize"><?=$p['body_headline'];?></h1>
+				<?php endif; ?>
+				
+				<?php if( !empty($p['body_lead_paragraph']) ) : ?>
                 <p class="text-20 margin-top-30">
-                  Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet ipsum sit amet dolor sit amet ipsum dolor sit.
+                  <?=$p['body_lead_paragraph'];?>
                 </p>
-
-                <img src="img/landing-pages/template4/quiz-funnel-flow.png" class="img-responsive image-align-center" />
+				<?php endif; ?>
               </div>
             </div>
 
-            <div class="row margin-top-80">
-              <div class="col-md-4 col-md-offset-2 col-md-sm-6">
-                <div class="col-md-2">
-                  <i class="ion-funnel text-50 text-blue"></i>
-                </div>
-                <div class="col-md-10 padding-left-30">
-                  <h4 class="text-20 text-blue">Feature # 1</h4>
-                  <p class="text-14">
-                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit. Lorem this is a very useful feature lorem ipsum dolor sit amet dolor sit.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-md-sm-6">
-                <div class="col-md-2">
-                  <i class="ion-email-unread text-50 text-blue"></i>
-                </div>
-                <div class="col-md-10 padding-left-30">
-                  <h4 class="text-20 text-blue">Feature # 2</h4>
-                  <p class="text-14">
-                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit. Lorem this is a very useful feature lorem ipsum dolor sit amet dolor sit.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="row margin-top-30">
-              <div class="col-md-4 col-md-offset-2">
-                <div class="col-md-2">
-                  <i class="ion-archive text-50 text-blue"></i>
-                </div>
-                <div class="col-md-10 padding-left-30">
-                  <h4 class="text-20 text-blue">Feature # 3</h4>
-                  <p class="text-14">
-                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit. Lorem this is a very useful feature lorem ipsum dolor sit amet dolor sit.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="col-md-2">
-                  <i class="ion-help-buoy text-50 text-blue"></i>
-                </div>
-                <div class="col-md-10 padding-left-30">
-                  <h4 class="text-20 text-blue">Feature # 4</h4>
-                  <p class="text-14">
-                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit. Lorem this is a very useful feature lorem ipsum dolor sit amet dolor sit.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row margin-top-30">
-              <div class="col-md-4 col-md-offset-2">
-                <div class="col-md-2">
-                  <i class="ion-bonfire text-50 text-blue"></i>
-                </div>
-                <div class="col-md-10 padding-left-30">
-                  <h4 class="text-20 text-blue">Feature # 5</h4>
-                  <p class="text-14">
-                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit. Lorem this is a very useful feature lorem ipsum dolor sit amet dolor sit.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="col-md-2">
-                  <i class="ion-android-camera text-50 text-blue"></i>
-                </div>
-                <div class="col-md-10 padding-left-30">
-                  <h4 class="text-20 text-blue">Feature # 6</h4>
-                  <p class="text-14">
-                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit. Lorem this is a very useful feature lorem ipsum dolor sit amet dolor sit.
-                  </p>
-                </div>
-              </div>
+            <div class="row margin-top-20">
+				
+				<?php if( $p['body_layout'] == 1 ) : ?>
+				
+				<div class="col-md-8 col-md-offset-2">
+					<?php echo $p['body_column_1_content']; ?>
+				</div>
+				
+				<?php elseif( $p['body_layout'] == 2 ) : ?>
+				
+				<div class="col-md-5 col-md-offset-1 padding-20">
+					<?php echo $p['body_column_1_content']; ?>
+				</div>
+				<div class="col-md-5 padding-20">
+					<?php echo $p['body_column_2_content']; ?>
+				</div>
+				
+				<?php elseif( $p['body_layout'] == 3 ) : ?>
+				
+				<div class="col-md-4 padding-20">
+					<?php echo $p['body_column_1_content']; ?>
+				</div>
+				<div class="col-md-4 padding-20">
+					<?php echo $p['body_column_2_content']; ?>
+				</div>
+				<div class="col-md-4 padding-20">
+					<?php echo $p['body_column_3_content']; ?>
+				</div>
+				
+				<?php endif; ?>
+				
             </div>
 
           </div>

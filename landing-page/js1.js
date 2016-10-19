@@ -30,7 +30,22 @@ $(document).ready(function(){
 	});
 	
 	$('select[name="body_layout"]').change(function(){
-		alert( this.value );
+		
+		if( this.value == 1 )
+		{
+			$('#column_2_content').hide();
+			$('#column_3_content').hide();
+		}
+		else if( this.value == 2 )
+		{
+			$('#column_2_content').show();
+			$('#column_3_content').hide();
+		}
+		else if( this.value == 3 )
+		{
+			$('#column_2_content').show();
+			$('#column_3_content').show();
+		}
 	});
 	
 	// froala

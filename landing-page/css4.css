@@ -77,6 +77,8 @@
 	height:100%;
 }*/
 
-#hero_image_video_group{
+#hero_image_video_group,
+#column_2_content,
+#column_3_content{
 	display:none;
 }
