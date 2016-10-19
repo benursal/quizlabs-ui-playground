@@ -79,6 +79,9 @@
 
 #hero_image_video_group,
 #column_2_content,
-#column_3_content{
+#column_3_content,
+#cta_1_if_optin,
+#cta_2_if_optin
+{
 	display:none;
 }

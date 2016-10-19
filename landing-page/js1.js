@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	
+	$('input[type="color"]').prop('defaultValue', '#ffffff');
+	
 	$('.lp-section-title').click(function(){
 		var section = $(this).parent().parent();
 		
@@ -45,6 +48,32 @@ $(document).ready(function(){
 		{
 			$('#column_2_content').show();
 			$('#column_3_content').show();
+		}
+	});
+	
+	$('select[name="cta_1_type"]').change(function(){
+		if( this.value == 'cta_button' )
+		{
+			$('.cta_1_item').show();
+			$('#cta_1_if_optin').hide();
+		}
+		else if( this.value == 'optin_form' )
+		{
+			$('.cta_1_item').hide();
+			$('#cta_1_if_optin').show();
+		}
+	});
+	
+	$('select[name="cta_2_type"]').change(function(){
+		if( this.value == 'cta_button' )
+		{
+			$('.cta_2_item').show();
+			$('#cta_2_if_optin').hide();
+		}
+		else if( this.value == 'optin_form' )
+		{
+			$('.cta_2_item').hide();
+			$('#cta_2_if_optin').show();
 		}
 	});
 	

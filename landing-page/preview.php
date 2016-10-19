@@ -250,55 +250,153 @@ $p = $_POST;
 
           </div>
         </div>
-
-        <div class="section bg-mint">
+		
+		
+		<?php
+			$cta1_style = '';
+			$cta1_style .= ( !empty($p['cta_1_bg_color']) ) ? 'background-color:' . $p['cta_1_bg_color'] . ' !important;' : '';
+			$cta1_style .= ( !empty($p['cta_1_bg_image']) ) ? 'background-image:url(\'' . $p['cta_1_bg_image'] . '\') !important; background-size:cover;repeat:no-repeat' : '';
+		?>
+		<div class="section bg-mint" style="<?=$cta1_style;?>">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center">
+						<?php if( $p['cta_1_type'] == 'cta_button' ) : ?>
+						
+							<?php if( !empty($p['cta_1_headline']) ) : ?>
+								<h1 class="text-blue text-50 text-light capitalize"><?=$p['cta_1_headline'];?></h1>
+							<?php endif; ?>
+							
+							<?php if( !empty($p['cta_1_lead_paragraph']) ) : ?>
+								<p class="text-20">
+								  <?=$p['cta_1_lead_paragraph'];?>
+								</p>
+							<?php endif; ?>
+							
+							<?php
+							$cta1_btn_style = '';
+							
+							$cta1_btn_text = ( !empty($p['cta_1_button_text']) ) ? $p['cta_1_button_text'] : 'Get it now!';
+							$cta1_btn_url = ( !empty($p['cta_1_button_url']) ) ? $p['cta_1_button_url'] : '#';
+							
+							$cta1_btn_style .= ( !empty($p['cta_1_button_bg_color']) ) ? 'background-color:' . $p['cta_1_button_bg_color'] . ' !important;' : '';
+							$cta1_btn_style .= ( !empty($p['cta_1_button_text_color']) ) ? 'color:'.$p['cta_1_button_text_color'].' !important' : '';
+							?>
+							<a href="<?=$cta1_btn_url; ?>" class="btn btn-lg btn-cta btn-yellow mtb" style="<?=$cta1_btn_style;?>">
+								<?=$cta1_btn_text; ?>
+							</a>
+						
+						
+						<?php elseif( $p['cta_1_type'] == 'optin_form' ) : ?>
+							<?php include 'featurebox.php'; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<?php
+			$testi_style = '';
+			$testi_style .= ( !empty($p['testi_bg_color']) ) ? 'background-color:' . $p['testi_bg_color'] . ' !important;' : '';
+			$testi_style .= ( !empty($p['testi_bg_image']) ) ? 'background-image:url(\'' . $p['testi_bg_image'] . '\') !important; background-size:cover;repeat:no-repeat' : '';
+		?>
+        <div class="section bg-mint" style="<?=$testi_style;?>">
           <div class="container">
             <div class="row">
               <div class="col-md-12 col-md-offset-0 text-center">
-                <h2 class="text-blue text-60 text-light capitalize">Rave Reviews</h2>
-                <p class="text-20 margin-top-30">Read what industry leaders say about Silent Selling.  We have <br />Fortune 500 clients and they love us!</p>
-
+				<?php if( !empty($p['testi_headline']) ) : ?>
+					<h1 class="text-blue text-60 text-light capitalize"><?=$p['testi_headline'];?></h1>
+				<?php endif; ?>
+				
+				<?php if( !empty($p['testi_lead_paragraph']) ) : ?>
+                <p class="text-20 margin-top-30">
+                  <?=$p['testi_lead_paragraph'];?>
+                </p>
+				<?php endif; ?>
+                
                 <div class="row margin-top-40">
+				
+				<?php if( !empty($p['testi_1_content']) ) : ?>
                   <div class="col-md-4 text-center the-testimonial">
                     <div class="testimonial-content">
                       <img src="img/quote.png" class="img-responsive image-align-center" />
                       <p class="margin-top-30">
-                        Silent Selling helped us increase our leads up to 450% in just 3 days!  We haven't gotten that kind of growth for the past 8 years.
-                        It's our new secret weapon.  Oh, it's not a secret anymore.
+						<?php echo $p['testi_1_content'];?>
                       <p>
-                      <img src="img/logos/blackandwhite/apple2.png" class="img-responsive image-align-center" style="height:50px;" />
                     </div>
                   </div>
-
+				<?php endif; ?>
+				<?php if( !empty($p['testi_2_content']) ) : ?>
                   <div class="col-md-4 text-center the-testimonial">
                     <div class="testimonial-content">
                       <img src="img/quote.png" class="img-responsive image-align-center" />
                       <p class="margin-top-30">
-                        Silent Selling helped us increase our leads up to 450% in just 3 days!  We haven't gotten that kind of growth for the past 8 years.
-                        It's our new secret weapon.  Oh, it's not a secret anymore.
+                        <?php echo $p['testi_2_content'];?>
                       <p>
-                      <img src="img/logos/blackandwhite/ibm.png" class="img-responsive image-align-center" />
                     </div>
                   </div>
-
+				<?php endif; ?>
+				<?php if( !empty($p['testi_3_content']) ) : ?>
                   <div class="col-md-4 text-center the-testimonial">
                     <div class="testimonial-content">
                       <img src="img/quote.png" class="img-responsive image-align-center" />
                       <p class="margin-top-30">
-                        Silent Selling helped us increase our leads up to 450% in just 3 days!  We haven't gotten that kind of growth for the past 8 years.
-                        It's our new secret weapon.  Oh, it's not a secret anymore.
+                        <?php echo $p['testi_3_content'];?>
                       <p>
-                      <img src="img/logos/blackandwhite/oracle.png" class="img-responsive image-align-center" />
                     </div>
                   </div>
-
+				<?php endif; ?>
                 </div>
 
               </div>
             </div>
           </div>
         </div>
-
+		
+		
+		<?php
+			$cta2_style = '';
+			$cta2_style .= ( !empty($p['cta_2_bg_color']) ) ? 'background-color:' . $p['cta_2_bg_color'] . ' !important;' : '';
+			$cta2_style .= ( !empty($p['cta_2_bg_image']) ) ? 'background-image:url(\'' . $p['cta_2_bg_image'] . '\') !important; background-size:cover;repeat:no-repeat' : '';
+		?>
+		<div class="section bg-mint" style="<?=$cta2_style;?>">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center">
+						<?php if( $p['cta_2_type'] == 'cta_button' ) : ?>
+						
+							<?php if( !empty($p['cta_2_headline']) ) : ?>
+								<h1 class="text-blue text-50 text-light capitalize"><?=$p['cta_2_headline'];?></h1>
+							<?php endif; ?>
+							
+							<?php if( !empty($p['cta_2_lead_paragraph']) ) : ?>
+								<p class="text-20">
+								  <?=$p['cta_2_lead_paragraph'];?>
+								</p>
+							<?php endif; ?>
+							
+							<?php
+							$cta2_btn_style = '';
+							
+							$cta2_btn_text = ( !empty($p['cta_2_button_text']) ) ? $p['cta_2_button_text'] : 'Get it now!';
+							$cta2_btn_url = ( !empty($p['cta_2_button_url']) ) ? $p['cta_2_button_url'] : '#';
+							
+							$cta2_btn_style .= ( !empty($p['cta_2_button_bg_color']) ) ? 'background-color:' . $p['cta_2_button_bg_color'] . ' !important;' : '';
+							$cta2_btn_style .= ( !empty($p['cta_2_button_text_color']) ) ? 'color:'.$p['cta_2_button_text_color'].' !important' : '';
+							?>
+							<a href="<?=$cta2_btn_url; ?>" class="btn btn-lg btn-cta btn-yellow mtb" style="<?=$cta2_btn_style;?>">
+								<?=$cta2_btn_text; ?>
+							</a>
+						
+						
+						<?php elseif( $p['cta_2_type'] == 'optin_form' ) : ?>
+							<?php include 'featurebox.php'; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
 
         <div id="footer">
           <div class="container">
