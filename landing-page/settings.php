@@ -4,7 +4,7 @@
 	<div class="padding-20">
 		<h3 class="text-24 text-light">Landing Page Settings</h3>
 		<hr />
-		<form method="post" action="preview.php" target="_blank">
+		<form method="post" action="preview.php" data-form-processed="true" target="_blank">
 			<div class="row">
 				<div class="col-md-8">
 					
@@ -106,6 +106,39 @@
 				</div>
 				<div class="col-md-4 text-center">
 					<button type="submit" class="btn btn-lg btn-block btn-info">Preview</button>
+					
+					<div class="row margin-top-30">
+						<div class="col-lg-12 text-left">
+							<h4>Show these sections on the Landing Page:</h4>
+
+							<label class="text-14 text-light">
+								<input type="checkbox" value="1" name="sections[header]" checked /> Header
+							</label>
+							<br />
+							<label class="text-14 text-light">
+								<input type="checkbox" value="1" name="sections[hero]" checked /> Hero (Banner)
+							</label>
+							<br />
+							<label class="text-14 text-light">
+								<input type="checkbox" value="1" name="sections[body]" checked /> Body
+							</label>
+							<br />
+							<label class="text-14 text-light">
+								<input type="checkbox" value="1" name="sections[cta1]" checked /> Call-to-action 1
+							</label>
+							<br />
+							<label class="text-14 text-light">
+								<input type="checkbox" value="1" name="sections[testimonials]" checked /> Testimonials
+							</label>
+							<br />
+							<label class="text-14 text-light">
+								<input type="checkbox" value="1" name="sections[cta2]" checked /> Call-to-action 2
+							</label>
+							<br />
+
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</form>

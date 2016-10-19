@@ -1,8 +1,9 @@
 <?php
 
-echo '<pre>';
+/*echo '<pre>';
 print_r( $_POST );
 echo '</pre>';
+*/
 
 $p = $_POST;
 ?>
@@ -46,6 +47,7 @@ $p = $_POST;
     <div id="landingPageContainer">
       <div class="lp-template lp-template-4 margin-top-0" id="lpTemplate4">
 		
+		<?php if( array_key_exists('header', $p['sections']) ) : ?>
 		<?php
 			$top_bar_style = ( !empty($p['header_bg_color']) ) ? 'background-color:' . $p['header_bg_color'] . ' !important;' : '';
 		?>
@@ -90,7 +92,9 @@ $p = $_POST;
 			</div>
 
 		</div>
+		<?php endif; ?>
 		
+		<?php if( array_key_exists('hero', $p['sections']) ) : ?>
 		<?php
 			$hero_style = '';
 			$hero_style .= ( !empty($p['hero_bg_color']) ) ? 'background-color:' . $p['hero_bg_color'] . ' !important;' : '';
@@ -190,8 +194,9 @@ $p = $_POST;
             </div><!--/row -->
           </div><!--/container -->
         </div><!-- /.IS Wrap -->
-
+		<?php endif; ?>
 		
+		<?php if( array_key_exists('body', $p['sections']) ) : ?>
 		<?php
 			$body_style = '';
 			$body_style .= ( !empty($p['body_bg_color']) ) ? 'background-color:' . $p['body_bg_color'] . ' !important;' : '';
@@ -250,8 +255,11 @@ $p = $_POST;
 
           </div>
         </div>
+		<?php endif; ?>
 		
 		
+		
+		<?php if( array_key_exists('cta1', $p['sections']) ) : ?>
 		<?php
 			$cta1_style = '';
 			$cta1_style .= ( !empty($p['cta_1_bg_color']) ) ? 'background-color:' . $p['cta_1_bg_color'] . ' !important;' : '';
@@ -294,8 +302,9 @@ $p = $_POST;
 				</div>
 			</div>
 		</div>
+		<?php endif; ?>
 		
-		
+		<?php if( array_key_exists('testimonials', $p['sections']) ) : ?>
 		<?php
 			$testi_style = '';
 			$testi_style .= ( !empty($p['testi_bg_color']) ) ? 'background-color:' . $p['testi_bg_color'] . ' !important;' : '';
@@ -353,8 +362,9 @@ $p = $_POST;
             </div>
           </div>
         </div>
+		<?php endif; ?>
 		
-		
+		<?php if( array_key_exists('cta2', $p['sections']) ) : ?>
 		<?php
 			$cta2_style = '';
 			$cta2_style .= ( !empty($p['cta_2_bg_color']) ) ? 'background-color:' . $p['cta_2_bg_color'] . ' !important;' : '';
@@ -397,7 +407,8 @@ $p = $_POST;
 				</div>
 			</div>
 		</div>
-
+		<?php endif; ?>
+		
         <div id="footer">
           <div class="container">
             <div class="row" id="firstLevel">
