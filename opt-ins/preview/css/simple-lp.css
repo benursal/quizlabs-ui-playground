@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+
+.landing-col .fr-view{
+	width: 50%;
+	margin-left: 25%;
+}
+
+.landing-col .fr-view p{
+	font-family: 'Merriweather', serif;
+	font-size:18px;
+	line-height:35px;
+}
+
+.landing-col .fr-view ul{
+	margin-bottom:20px;
+}
+
+.landing-col .fr-view ul li{
+	font-family: 'Merriweather', serif;
+	font-size:18px;
+	line-height:35px;
+	margin-top:10px;
+}
+
+.landing-col .fr-view h2{
+	line-height:42px;
+}
+
+
+
+/* media queries */
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px){
+	
+	.landing-col .fr-view{
+		width: 95%;
+		margin-left: 2.5%;
+	}
+	
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px){
+	.landing-col .fr-view{
+		width: 83.33333333%;
+		margin-left: 8.33333333%;
+	}
+	
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px){
+	.landing-col .fr-view{
+		width: 66.66666667%;
+		margin-left: 16.66666667%;
+	}
+}

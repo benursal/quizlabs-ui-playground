@@ -1,0 +1,72 @@
+/* Quiz First Page */
+#quizFirstPage{
+	background-color:white;
+}
+
+#quizFirstPage .footer{
+	position:static !important;
+	padding:20px 0 20px 0 !important;
+}
+
+#quizFirstPage .quiz-button{
+	border:0 !important;
+}
+
+#quizFirstPage .quiz-box{
+	border: 1px solid #dedede;
+	border-top-right-radius: 7px;
+	border-top-left-radius: 7px;
+}
+
+#quizFirstPage .quiz-title{
+	position:static;
+	width:100%;
+	padding:20px 40px;
+}
+
+#quizFirstPage .quiz-title h1{
+	font-weight: bold;
+    line-height: 40px;
+	color:#0074AA !important
+}
+
+#quizFirstPage .quiz-title p{
+    line-height: 30px;
+	margin-top:20px;
+}
+
+#quizFirstPage .quiz-button{
+	margin-top: -40px;
+}
+
+#quizFirstPage .quiz-button button{
+	padding:20px 60px;
+	font-size:30px;
+}
+
+#quizFirstPage .quiz-powered-by{
+	padding:20px;
+}
+
+#quizFirstPage .quiz-powered-by p{
+	margin-right:40px;
+	text-align:right;
+	font-size:14px;
+}
+
+/**
+On the CSS file: "Quiz\client\compatibility\inspinia\css\styles.css"
+
+.quiz-box {
+  margin: 0 auto; <--- Please remove this -->
+  margin-top: 50px;
+  border: 1px solid #dedede
+}
+
+.quiz-title {
+    position: absolute;  <--- Please remove this -->
+	top: 65%; <--- Please remove this -->
+	text-align: center;
+    width: 400px; <--- Please remove this -->
+}
+*/

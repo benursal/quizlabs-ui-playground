@@ -13,7 +13,7 @@
 		
 		<form method="post" action="preview.php" data-form-processed="true" target="_blank" class="margin-top-40">
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-md-8">
 					
 					<div class="row lp-section">
 						<div class="col-lg-12">
@@ -166,12 +166,7 @@
 						</a> 
 					</p>
 				</div>
-				<div class="col-md-5 text-center">
-					
-					<h1 class="text-center">Preview Here...</h1>
-							
-					
-				</div>
+			
 			</div>
 		</form>
 	</div>
