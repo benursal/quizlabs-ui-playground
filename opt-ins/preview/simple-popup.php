@@ -14,12 +14,21 @@
 							<img src="img/ebook.png" class="img-responsive margin-top-30" id="popup_image" />
 						</div>
 						<div class="col-md-8 col-md-offset-1 text-left" id="column_text">
-							<h1 class="text-large text-bold" id="headline_content">Subscribe to our newsletter</h1>
+							<h1 class="text-large text-bold" id="headline_content">Take this short quiz!</h1>
 							<div class="text-16 margin-top-40" id="body_content">
 								Enter description here...
 							</div>
 						</div>
 					</div>
+					
+					<div class="row optin-form-controls margin-top-10" id="quizButtonContainer">
+						
+						<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+							<button type="submit" class="btn btn-default btn-block btn-cta btn-orange" id="cta_button">Take Quiz!</button>
+						</div>
+						
+					</div>
+					
 					<div class="row optin-form-controls margin-top-10" id="optinFormContainer">
 						<div class="col-lg-12">
 						
@@ -43,6 +52,8 @@
 						
 						</div>
 					</div>
+					
+					
 				</div>
 				<div id="popup_success">
 					<div class="row optin-body">

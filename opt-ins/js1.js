@@ -120,51 +120,6 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('select[name="body_layout"]').change(function(){
-		
-		if( this.value == 1 )
-		{
-			$('#column_2_content').hide();
-			$('#column_3_content').hide();
-		}
-		else if( this.value == 2 )
-		{
-			$('#column_2_content').show();
-			$('#column_3_content').hide();
-		}
-		else if( this.value == 3 )
-		{
-			$('#column_2_content').show();
-			$('#column_3_content').show();
-		}
-	});
-	
-	$('select[name="cta_1_type"]').change(function(){
-		if( this.value == 'cta_button' )
-		{
-			$('.cta_1_item').show();
-			$('#cta_1_if_optin').hide();
-		}
-		else if( this.value == 'optin_form' )
-		{
-			$('.cta_1_item').hide();
-			$('#cta_1_if_optin').show();
-		}
-	});
-	
-	$('select[name="cta_2_type"]').change(function(){
-		if( this.value == 'cta_button' )
-		{
-			$('.cta_2_item').show();
-			$('#cta_2_if_optin').hide();
-		}
-		else if( this.value == 'optin_form' )
-		{
-			$('.cta_2_item').hide();
-			$('#cta_2_if_optin').show();
-		}
-	});
-	
 	// froala
 	$('textarea[name="body_content"]').froalaEditor({
 		heightMin: 150,
@@ -186,6 +141,62 @@ $(document).ready(function(){
 	
 	
 	// edit
+	
+	
+	$('select[name="popup_type"]').change(function(){
+		
+		
+		if( this.value == 1 ) // if it is 1 (or Quiz-based)
+		{
+			iframe.find('#quizButtonContainer').show();
+			iframe.find('#optinFormContainer').hide();
+			
+			$('#quizSettings').show();
+			$('#optinFormSettings').hide();
+			
+			// show quiz only fields
+			$('.quiz-only-fields').show();
+			
+			show_quiz_content();
+		}
+		else
+		{
+			iframe.find('#quizButtonContainer').hide();
+			iframe.find('#optinFormContainer').show();
+			
+			$('#quizSettings').hide();
+			$('#optinFormSettings').show();
+			
+			// hide quiz only fields
+			$('.quiz-only-fields').hide();
+			
+			// default opt-in headline
+			$('input[name="headline_content"]').val( default_simple_headline );
+			iframe.find('#headline_content').text( default_simple_headline );
+		}
+		
+	});
+	
+	
+	$('select[name="quiz"]').change(function(){
+		
+		var val = parseInt( this.value );
+		
+		if( this.value != '' && $('input[name="use_quiz_title"]').is(':checked') )
+		{
+			// set headline
+			$('input[name="headline_content"]').val( quiz_titles[val] );
+			iframe.find('#headline_content').html( quiz_titles[val] );
+			
+			iframe.find('#body_content').html( $.parseHTML(quiz_descriptions[val]) );
+		}
+		else
+		{
+			$('input[name="headline_content"]').val( default_quiz_headline );
+			iframe.find('#headline_content').text( default_quiz_headline );
+		}
+	});
+		
 	
 	$('input[name="popup_bg_color"]').change(function(){
 		iframe.find('#popupOptIn').css( 'background-color', this.value );
@@ -253,8 +264,12 @@ $(document).ready(function(){
 	});
 	
 	$('input[name="optin_bg_color"]').change(function(){
-		iframe.find('#optinFormContainer').css( 'background-color', this.value );
+		iframe.find('.optin-form-controls').css( 'background-color', this.value );
 		iframe.find('#popupOptIn').css( 'border-color', this.value );
+	});
+	
+	$('input[name="use_quiz_title"]').click(function(){
+		show_quiz_content();
 	});
 	
 	$('input[name="field_name"]').click(function(){
@@ -337,3 +352,25 @@ $(document).ready(function(){
 		iframe.find('#success_button').css( 'color', this.value );
 	});
 });
+
+function show_quiz_content()
+{
+	var val = parseInt( $('select[name="quiz"]').val() );
+		
+	if( $('input[name="use_quiz_title"]').is(':checked') ) // if checked
+	{
+		// set headline
+		$('input[name="headline_content"]').val( quiz_titles[val] );
+		iframe.find('#headline_content').text( quiz_titles[val] );
+		
+		// body
+		//iframe.find('#body_content').html( $.parseHTML(quiz_descriptions[val]) );
+	}
+	else
+	{
+		
+		$('input[name="headline_content"]').val( default_quiz_headline );
+		iframe.find('#headline_content').text( default_quiz_headline );
+	}
+	
+}
