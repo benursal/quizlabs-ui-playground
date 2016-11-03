@@ -52,7 +52,10 @@
 	padding:30px 20px;
 }
 
-#popup_success{
+#popup_success, 
+#popup_quiz, 
+#popup_quiz_optin,
+#popup_quiz_success{
 	display:none;
 	padding:20px 0px 50px 0px;
 }

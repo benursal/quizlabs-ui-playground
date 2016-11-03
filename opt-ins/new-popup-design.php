@@ -82,10 +82,33 @@
 								</div>
 								
 								<div class="form-group margin-top-20">
+									<label class="text-14">Border Color</label>
+									<input type="color" value="#0e76bc" name="border_color" class="form-control">
+								</div>
+								
+								<div class="form-group margin-top-20">
 									<label class="text-14">Body Background Color</label>
 									<input type="color" value="#ffffff" name="popup_bg_color" class="form-control">
 								</div>
 								
+								<div class="form-group margin-top-20 cta_1_item quiz-only-fields">
+									<label class="text-14">Call-to-action Button</label>
+									
+									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
+										<label class="text-14 text-light">Text</label>
+										<input type="text" class="form-control" name="cta_button_text" placeholder="Take Quiz!" value="Take Quiz!" />
+									</div>
+									
+									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
+										<label class="text-14 text-light">Button Background Color</label>
+										<input type="color" value="#e78a1b" class="form-control" name="cta_button_bg_color" />
+									</div>
+									
+									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
+										<label class="text-14 text-light">Button Text Color</label>
+										<input type="color" value="#ffffff" class="form-control" name="cta_button_text_color" />
+									</div>
+								</div>
 								
 							</div>
 						</div>
@@ -133,44 +156,43 @@
 						<div class="col-lg-12">
 							<div class="lp-section-title">
 								<h3 class="pull-right"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></h3>
-								<h3 class="pull-left">Quiz Settings</h3>
+								<h3 class="pull-left">Opt-in Settings</h3>
 								<div class="clearfix"></div>
 							</div>
 							
 							<div class="lp-section-inside">
 								
 								<div class="form-group margin-top-20">
-									<label class="text-14">Select Quiz to Use</label>
-									<select class="form-control" name="quiz">
-										<option value="1">Are you an Entrepreneur?</option>
-										<option value="2">Find out if you are ready for a Rich Life</option>
-										<option value="3">How organized are you as a small business owner</option>
-										<option value="4">Quiz N</option>
-									</select>
+									<label class="text-14">Headline</label>
+									
+									<div class="form-group margin-top-0 padding-left-20">
+										<label class="text-14 text-light">Content</label>
+										<input type="text" class="form-control" name="optin_headline_content" value="Please enter your details" placeholder="Please enter your details" />
+									</div>
+									
+									<div class="form-group margin-top-0 padding-left-20">
+										<label class="text-14 text-light">Font Color</label>
+										<input type="color" value="" name="optin_headline_color" class="form-control" value="#333">
+									</div>
+									
 								</div>
 								
 								<div class="form-group margin-top-20">
-									<label class="text-14">Background Color</label>
-									<input type="color" value="#0e76bc" name="optin_bg_color" class="form-control">
+									<label class="text-14">Body</label>
+									
+									<div class="form-group margin-top-0 padding-left-20">
+										<label class="text-14 text-light">Content</label>
+										<textarea class="form-control" name="optin_body_content" placeholder="content..." rows="3">Enter description here...</textarea>
+									</div>
+									
 								</div>
 								
-								<div class="form-group margin-top-20 cta_1_item">
-									<label class="text-14">Call-to-action Button</label>
-									
-									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
-										<label class="text-14 text-light">Text</label>
-										<input type="text" class="form-control" name="cta_button_text" placeholder="Take Quiz!" value="Take Quiz!" />
-									</div>
-									
-									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
-										<label class="text-14 text-light">Button Background Color</label>
-										<input type="color" value="#e78a1b" class="form-control" name="cta_button_bg_color" />
-									</div>
-									
-									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
-										<label class="text-14 text-light">Button Text Color</label>
-										<input type="color" value="#ffffff" class="form-control" name="cta_button_text_color" />
-									</div>
+								<div class="form-group margin-top-20">
+									<label class="text-14">When to Show Opt-in</label>
+									<select class="form-control" name="quiz_optin_placement">
+										<option value="1">After user has answered the quiz</option>
+										<option value="2">Before user takes the quiz</option>
+									</select>
 								</div>
 								
 								<div class="form-group margin-top-20">
@@ -179,22 +201,42 @@
 									<div class="form-group margin-top-0 padding-left-20 cta_1_item">
 										
 										<label class="text-14 text-light">
-											<input type="checkbox" value="1" name="field_name" checked /> Name
+											<input type="checkbox" value="1" name="a_field" id="fd_name" checked /> Name
 										</label><br />
 										
 										<label class="text-14 text-light">
-											<input type="checkbox" value="1" name="field_email" checked disabled /> Email Address
+											<input type="checkbox" value="1" name="a_field" checked disabled /> Email Address
 										</label><br />
 										
 										<label class="text-14 text-light">
-											<input type="checkbox" value="1" name="field_phone_num" checked /> Phone #
+											<input type="checkbox" value="1" name="a_field" id="fd_company" checked /> Company Name
 										</label><br />
+										
 										<label class="text-14 text-light">
-											<input type="checkbox" value="1" name="field_company_name" checked /> Company Name
+											<input type="checkbox" value="1" name="a_field" id="fd_phone" checked /> Phone #
 										</label>
 										
 									</div>
 									
+								</div>
+								
+								<div class="form-group margin-top-20 quiz_cta_1_item quiz-only-fields">
+									<label class="text-14">Call-to-action Button</label>
+									
+									<div class="form-group margin-top-0 padding-left-20 quiz_cta_1_item">
+										<label class="text-14 text-light">Text</label>
+										<input type="text" class="form-control" name="quiz_cta_button_text" placeholder="Get Answers" value="Get Answers" />
+									</div>
+									
+									<div class="form-group margin-top-0 padding-left-20 quiz_cta_1_item">
+										<label class="text-14 text-light">Button Background Color</label>
+										<input type="color" value="#e78a1b" class="form-control" name="quiz_cta_button_bg_color" />
+									</div>
+									
+									<div class="form-group margin-top-0 padding-left-20 quiz_cta_1_item">
+										<label class="text-14 text-light">Button Text Color</label>
+										<input type="color" value="#ffffff" class="form-control" name="quiz_cta_button_text_color" />
+									</div>
 								</div>
 								
 							</div>
@@ -224,11 +266,6 @@
 										</label>
 									</div>
 									
-								</div>
-								
-								<div class="form-group margin-top-20">
-									<label class="text-14">Background Color</label>
-									<input type="color" value="#0e76bc" name="optin_bg_color" class="form-control">
 								</div>
 								
 								<div class="form-group margin-top-20 cta_1_item">
@@ -335,9 +372,15 @@
 				
 					<div class="ben-preview-panel" data-spy="affix" data-offset-top="300">
 						<nav aria-label="...">
-							<ul class="pager" id="preview_screen">
+							<ul class="pager" id="simple_preview_screen">
 								<li><a href="javascript:void(0)" class="active">Opt-in</a></li>
 								<li><a href="javascript:void(0)">Success</a></li>
+							</ul>
+							
+							<ul class="pager" id="quiz_preview_screen">
+								<li><a href="javascript:void(0)" class="active">Intro Page</a></li>
+								<li><a href="javascript:void(0)">Quiz</a></li>
+								<li><a href="javascript:void(0)">Opt-in</a></li>
 							</ul>
 						</nav>
 						

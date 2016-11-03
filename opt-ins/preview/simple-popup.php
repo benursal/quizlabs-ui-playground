@@ -8,7 +8,7 @@
 					<a href="#" class="text-18"><i class="ion-close"></i></a>
 				</div>
 				
-				<div id="popup_optin">
+				<div class="quiz-optin" id="popup_optin">
 					<div class="row optin-body">
 						<div class="col-md-3" id="column_image">
 							<img src="img/ebook.png" class="img-responsive margin-top-30" id="popup_image" />
@@ -53,8 +53,46 @@
 						</div>
 					</div>
 					
+				</div>
+				
+				<div class="quiz-optin text-left" id="popup_quiz">
+					<?php include 'quiz-view.html'; ?>
+				</div>
+				
+				<div class="quiz-optin" id="popup_quiz_optin">
+					<h2 class="text-large text-bold" id="optin_headline_content">Enter your details here</h2>
+					<div class="text-16 margin-top-20" id="optin_body_content">
+						Enter description here...
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-left">
+							
+							<div class="form-group margin-top-20" id="optin_name">
+								<label class="text-14">Name</label>
+								<input type="text" class="form-control" placeholder="Name" />
+							</div>
+							
+							<div class="form-group margin-top-20" id="optin_email">
+								<label class="text-14">Email Address</label>
+								<input type="email" class="form-control" placeholder="Email address" />
+							</div>
+							<div class="form-group margin-top-20" id="optin_company_name">
+								<label class="text-14">Company Name</label>
+								<input type="text" class="form-control" placeholder="Company name" />
+							</div>
+							
+							<div class="form-group margin-top-20" id="optin_phone_number">
+								<label class="text-14">Phone Number</label>
+								<input type="email" class="form-control" placeholder="Phone number" />
+							</div>
+							<button type="submit" class="btn btn-default btn-block btn-cta btn-orange" id="quiz_cta_button">Get Answers</button>
+						</div>
+					</div>
 					
 				</div>
+				
+				
 				<div id="popup_success">
 					<div class="row optin-body">
 						<div class="col-md-12 text-center">

@@ -1,26 +1,65 @@
 var iframe;
 
 $(document).ready(function(){
+	
 	// assign
 	iframe = $('#iframePreview').contents();
 	//iframe2 = $('#iframePreview2').contents();
 	
 	//$('.iframe-container:eq(1)').hide();
 	
-	$('#preview_screen li a:eq(0)').click(function(){
+	$('#simple_preview_screen li a:eq(0)').click(function(){
 		iframe.find('#popup_success').hide();
 		iframe.find('#popup_optin').show();
 		
 		$(this).addClass('active');
-		$('#preview_screen li a:eq(1)').removeClass('active');
+		$('#simple_preview_screen li a:eq(1)').removeClass('active');
 	});
 	
-	$('#preview_screen li a:eq(1)').click(function(){
+	$('#simple_preview_screen li a:eq(1)').click(function(){
 		iframe.find('#popup_success').show();
 		iframe.find('#popup_optin').hide();
 		
 		$(this).addClass('active');
-		$('#preview_screen li a:eq(0)').removeClass('active');
+		$('#simple_preview_screen li a:eq(0)').removeClass('active');
+	});
+	
+	
+	// Quiz Preview Screen
+	$('#quiz_preview_screen li a:eq(0)').click(function(){
+		
+		iframe.find('.quiz-optin').hide();
+		iframe.find('.quiz-optin:eq(0)').show();
+		
+		$('#quiz_preview_screen li a').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#quiz_preview_screen li a:eq(1)').click(function(){
+		
+		iframe.find('.quiz-optin').hide();
+		iframe.find('.quiz-optin:eq(1)').show();
+		
+		$('#quiz_preview_screen li a').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#quiz_preview_screen li a:eq(2)').click(function(){
+		
+		iframe.find('.quiz-optin').hide();
+		iframe.find('.quiz-optin:eq(2)').show();
+		
+		$('#quiz_preview_screen li a').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#quiz_preview_screen li a:eq(3)').click(function(){
+		
+		iframe.find('.quiz-optin').hide();
+		iframe.find('.quiz-optin:eq(3)').show();
+		
+		$('#quiz_preview_screen li a').removeClass('active');
+		$(this).addClass('active');
 	});
 	
 	//$('input[type="color"]').prop('defaultValue', '#ffffff');
@@ -121,13 +160,16 @@ $(document).ready(function(){
 	});
 	
 	// froala
-	$('textarea[name="body_content"]').froalaEditor({
+	$('textarea[name="body_content"], textarea[name="optin_body_content"]').froalaEditor({
 		heightMin: 150,
 		heightMax: 200,
 		toolbarButtons: [
 			'bold', 'italic', 'underline','formatUL', 'insertLink', 'undo', 'redo'
 		]
     });
+	// off
+	//$('textarea[name="body_content"]').froalaEditor('edit.off');
+	
 	/*
 	$('textarea.content').froalaEditor({
 		heightMin: 400,
@@ -145,6 +187,8 @@ $(document).ready(function(){
 	
 	$('select[name="popup_type"]').change(function(){
 		
+		iframe.find('#popup_success, .quiz-optin').hide();
+		iframe.find('#popup_optin').show();
 		
 		if( this.value == 1 ) // if it is 1 (or Quiz-based)
 		{
@@ -158,6 +202,12 @@ $(document).ready(function(){
 			$('.quiz-only-fields').show();
 			
 			show_quiz_content();
+			
+			$('#quiz_preview_screen').show();
+			$('#simple_preview_screen').hide();
+			
+			
+			$('#quiz_preview_screen li a:eq(0)').trigger('click');
 		}
 		else
 		{
@@ -173,6 +223,12 @@ $(document).ready(function(){
 			// default opt-in headline
 			$('input[name="headline_content"]').val( default_simple_headline );
 			iframe.find('#headline_content').text( default_simple_headline );
+			
+			
+			$('#simple_preview_screen').show();
+			$('#quiz_preview_screen').hide();
+			
+			$('#simple_preview_screen li a:eq(0)').trigger('click');
 		}
 		
 	});
@@ -182,18 +238,25 @@ $(document).ready(function(){
 		
 		var val = parseInt( this.value );
 		
-		if( this.value != '' && $('input[name="use_quiz_title"]').is(':checked') )
+		if( this.value != '' && $('input[name="use_quiz_title"]').is(':checked') ) // Quiz
 		{
 			// set headline
 			$('input[name="headline_content"]').val( quiz_titles[val] );
 			iframe.find('#headline_content').html( quiz_titles[val] );
 			
 			iframe.find('#body_content').html( $.parseHTML(quiz_descriptions[val]) );
+			$('textarea[name="body_content"]').froalaEditor('html.set', quiz_descriptions[val]);
+			
 		}
 		else
 		{
 			$('input[name="headline_content"]').val( default_quiz_headline );
 			iframe.find('#headline_content').text( default_quiz_headline );
+			
+			$('textarea[name="body_content"]').froalaEditor('html.set', default_body);
+			iframe.find('#body_content').html( default_body );
+			
+			
 		}
 	});
 		
@@ -226,7 +289,19 @@ $(document).ready(function(){
 		iframe.find('#column_text').find('ul').addClass('imaged-list margin-bottom-10');
 		
     });
+	
+	
+	$('textarea[name="optin_body_content"]').froalaEditor('events.on', 'keyup', function (e) { 
+		iframe.find('#optin_body_content').html( $('textarea[name="optin_body_content"]').froalaEditor('html.get'));
+	}, true);
+	
+	$('textarea[name="optin_body_content"]').on('froalaEditor.commands.after', function (e, editor, cmd, param1, param2) {
+		iframe.find('#optin_body_content').html( $('textarea[name="optin_body_content"]').froalaEditor('html.get'));
+    });
+	
 	//});
+	
+	//$('textarea[name="optin_body_content"]').froalaEditor('html.set', quiz_descriptions[val]);
 	
 	$('input[name="body_color"]').change(function(){
 		iframe.find('#body_content').css( 'color', this.value );
@@ -263,7 +338,7 @@ $(document).ready(function(){
 		
 	});
 	
-	$('input[name="optin_bg_color"]').change(function(){
+	$('input[name="border_color"]').change(function(){
 		iframe.find('.optin-form-controls').css( 'background-color', this.value );
 		iframe.find('#popupOptIn').css( 'border-color', this.value );
 	});
@@ -285,6 +360,48 @@ $(document).ready(function(){
 			iframe.find('#field_column_email').attr('class', 'col-md-6 col-md-offset-1');
 		}
 		
+	});
+	
+	$('input[name="a_field"]').click(function(){
+		
+		// name
+		if( this.id == 'fd_name' )
+		{
+			if( $(this).is(':checked') )
+			{
+				iframe.find('#optin_name').show();
+			}
+			else
+			{
+				iframe.find('#optin_name').hide();
+			}
+		}
+		
+		// phone number
+		if( this.id == 'fd_phone' )
+		{
+			if( $(this).is(':checked') )
+			{
+				iframe.find('#optin_phone_number').show();
+			}
+			else
+			{
+				iframe.find('#optin_phone_number').hide();
+			}
+		}
+		
+		// company name
+		if( this.id == 'fd_company' )
+		{
+			if( $(this).is(':checked') )
+			{
+				iframe.find('#optin_company_name').show();
+			}
+			else
+			{
+				iframe.find('#optin_company_name').hide();
+			}
+		}
 	});
 	
 	$('input[name="image_margin_top"]').keyup(function(e){
@@ -312,6 +429,19 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('input[name="quiz_cta_button_text"]').keyup(function(e){
+		iframe.find('#quiz_cta_button').text( this.value );
+	});
+	
+	$('input[name="quiz_cta_button_bg_color"]').change(function(){
+		iframe.find('#quiz_cta_button').css( 'background-color', this.value );
+	});
+	
+	$('input[name="quiz_cta_button_text_color"]').change(function(){
+		iframe.find('#quiz_cta_button').css( 'color', this.value );
+	});
+	
+	
 	$('input[name="cta_button_text"]').keyup(function(e){
 		iframe.find('#cta_button').text( this.value );
 	});
@@ -326,6 +456,15 @@ $(document).ready(function(){
 	});
 	
 	
+	$('input[name="optin_headline_content"]').keyup(function(e){
+		iframe.find('#optin_headline_content').text( this.value );
+	});
+	
+	$('input[name="optin_headline_color"]').change(function(){
+		iframe.find('#optin_headline_content').css( 'color', this.value );
+	});
+	
+	
 	$('input[name="success_headline_content"]').keyup(function(e){
 		iframe.find('#success_headline_content').text( this.value );
 	});
@@ -333,6 +472,7 @@ $(document).ready(function(){
 	$('input[name="success_headline_color"]').change(function(){
 		iframe.find('#success_headline_content').css( 'color', this.value );
 	});
+	
 	
 	$('textarea[name="success_body_content"]').keyup(function(e){
 		
@@ -364,13 +504,25 @@ function show_quiz_content()
 		iframe.find('#headline_content').text( quiz_titles[val] );
 		
 		// body
-		//iframe.find('#body_content').html( $.parseHTML(quiz_descriptions[val]) );
+		iframe.find('#body_content').html( $.parseHTML(quiz_descriptions[val]) );
+		$('textarea[name="body_content"]').froalaEditor('html.set', quiz_descriptions[val]);
+		
+		
+		//$('input[name="headline_content"]').attr('disabled', true);
+		//$('textarea[name="body_content"]').froalaEditor('edit.off');
+		
 	}
 	else
 	{
 		
 		$('input[name="headline_content"]').val( default_quiz_headline );
 		iframe.find('#headline_content').text( default_quiz_headline );
+		
+		$('textarea[name="body_content"]').froalaEditor('html.set', default_body);
+		iframe.find('#body_content').html( default_body );
+		
+		//$('input[name="headline_content"]').attr('disabled', false);
+		//$('textarea[name="body_content"]').froalaEditor('edit.on');
 	}
 	
 }
