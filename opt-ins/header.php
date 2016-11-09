@@ -53,7 +53,7 @@
   <link rel="stylesheet" type="text/css" class="__meteor-css__" href="css1.css">  
   <link rel="stylesheet" type="text/css" class="__meteor-css__" href="css2.css">  
   <link rel="stylesheet" type="text/css" class="__meteor-css__" href="css3.css">
-  <link rel="stylesheet" type="text/css" href="css4.css">
+  <link rel="stylesheet" type="text/css" href="css4.css?token=<?php echo date('YmdHs'); ?>">
 <meta name="fragment" content="!">
 
 <meta charset="utf-8">

@@ -67,7 +67,7 @@
 /* welcome gate */
 
 .welcome-gate{
-	
+	display:none;
 }
 
 .wg-green{
@@ -77,6 +77,38 @@
 .wg-blue{
 	background:rgba(42,134,154,.9);
 }
+
+.welcome-gate .quiz-page p{
+	color:white;
+}
+
+.welcome-gate .quiz-page h1{
+	font-size:24px;
+	line-height:40px;
+	color:white !important;
+	font-weight:bold;
+}
+
+.welcome-gate .quiz-page,
+.welcome-gate .optin-page{
+	display:none;
+}
+
+.welcome-gate .quiz-page .question-answers .radio label{
+	background-color:#FAFEFF;
+	color:#333;
+	border:0px;
+	padding: 10px 0 20px 10px;
+	margin-top:5px;
+	border-radius:5px;
+	border:1px solid #EDEDED;
+}
+
+.welcome-gate .quiz-page .question-answers .radio label:hover{
+	background-color:#E8F9FF
+}
+
+
 
 /* scrollbox */
 .scrollbox{

@@ -10,19 +10,13 @@
 
     <title>QuizLabs</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/ionicons.min.css" rel="stylesheet">
-
-    <link href="css/inspinia.css" rel="stylesheet">
-
-    <link href="css/custom.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="http://dev.quizlabs.co/a925771dbed68e784ae716030c23e4cbaadea0b3.css?meteor_css_resource=true">  
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="http://dev.quizlabs.co/75ae62739da154083e83eb896d1807fc35bf721c.css?meteor_css_resource=true">  
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="http://dev.quizlabs.co/709c2bae2d415a1d190bfb711eeacabd78b8ade0.css?meteor_css_resource=true">
 
     <link href="css/lp.css" rel="stylesheet">
 	
-    <link href="css/opt-ins.css" rel="stylesheet">
+    <link href="css/opt-ins.css?token="<?php echo date('YmdsIH');?>" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
@@ -48,7 +42,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
-							<h1 class="text-70 capitalize margin-top-50 text-extrabold text-blue">Discover how QuizLabs can help your business</h1>
+							<h1 class="text-70 capitalize margin-top-50 text-extrabold text-blue">Please just ignore this sample page. Focus on the WELCOME GATE.</h1>
 							<p class="text-20">
 								This Quiz will help you understand if QuizLabs is a good fit for your business. <br />Discover if your business will benefit from quiz based marketing campaigns.
 							</p>
@@ -209,12 +203,6 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="section bg-white">
-				<div class="container">
-					<?php include 'featurebox.php'; ?>
-				</div>
-			</div>
 
 			<div id="footer">
 				<div class="container">
@@ -252,7 +240,34 @@
 				</div>
 			</div>
 		</div>
-		<?php include 'success.php'; ?>
+		<?php include 'welcome-gate.php'; ?>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js?token=<?php echo date('Ymdsi');?>" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">
+		</script>
+		
+		<script>
+			setTimeout(function(){ $('.welcome-gate').show() }, 2000);
+			
+			$(document).ready(function(){
+				$('#mainCta').click(function(){
+					$('.first-page').fadeOut();
+					$('.quiz-page:eq(0)').fadeIn();
+				});
+				
+				$('.welcome-gate .quiz-page:eq(0) .question-answers .radio').click(function(){
+					$('.quiz-page:eq(0)').hide();
+					$('.quiz-page:eq(1)').fadeIn();
+				});
+				
+				$('.welcome-gate .quiz-page:eq(1) .question-answers .radio').click(function(){
+					$('.quiz-page:eq(1)').hide();
+					$('.optin-page').fadeIn();
+				});
+				
+				$('.welcome-gate #noThanks').click(function(){
+					$('.welcome-gate').hide();
+				});
+			});
+		</script>
 		
 	</body>
 </html>
